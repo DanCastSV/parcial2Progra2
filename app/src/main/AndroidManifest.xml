@@ -11,6 +11,8 @@
         android:theme="@style/Theme.Parcialndos">
 
         <activity
+
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".SplashActivity"
             android:exported="true" >
             <intent-filter>
