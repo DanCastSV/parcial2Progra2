@@ -28,25 +28,23 @@ class MainActivity : AppCompatActivity() {
             val clinic:String=etxClinic.text.toString()
             val number:String=etxNumber.text.toString()
             val edit = prefs.edit()
-            edit.putString("key1", "Nombre: $name,")
-            edit.putString("key2", " Clinica: $clinic,")
-            edit.putString("key3", " N° de vacuna: $number")
+            edit.putString("key1", "Nombre: $name")
+            edit.putString("key2", "Clinica: $clinic")
+            edit.putString("key3", "N° de vacuna: $number")
             edit.apply()
-            Alerta("Hemos guardado los datos")
+            Alerta("Hemos actualizado los datos")
 
         }
         show.setOnClickListener {
-            val myprefs = prefs.getString("key1", "Nombre: No hay nombre registro ")
-            val myprefs1 = prefs.getString("key2", "Clinica: No hay registro ")
-            val myprefs2 = prefs.getString("key3", "N° de vacuna: No hay nombre registro ")
+            val intent = Intent(this, Resultado::class.java).apply {
+
+            }
+            startActivity(intent)
 
 
-            Alerta(myprefs.toString()+myprefs1.toString()+myprefs2.toString())
+
 
         }
-
-
-
 
 
     }

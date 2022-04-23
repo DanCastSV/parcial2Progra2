@@ -98,6 +98,7 @@
         android:id="@+id/etxNumber"
         android:layout_width="372dp"
         android:layout_height="49dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"

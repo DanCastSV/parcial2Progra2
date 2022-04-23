@@ -34,7 +34,7 @@ class SplashActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        //Llama al inten y se le configura el tiempo de espera
+        //Llama al intent y se configura el tiempo de espera
         @Suppress("DEPRECATION")
         Handler().postDelayed(
             {
