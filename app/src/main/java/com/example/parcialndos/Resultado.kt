@@ -10,10 +10,14 @@ class Resultado : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultado)
-
+        //Se llama a la funcion Obtener
         Obtener()
 
     }
+    /*
+    Se crea una funcion para mandar a llamar los datos del SharedPreferences
+    y se muestren en el activity
+     */
     private fun Obtener(){
         @Suppress("DEPRECATION")
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)

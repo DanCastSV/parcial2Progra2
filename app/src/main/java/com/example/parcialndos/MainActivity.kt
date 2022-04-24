@@ -24,60 +24,79 @@ class MainActivity : AppCompatActivity() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
 
+        /*Se configura lo que hará el boton "Guardar" y
+        se envían los datos del "SharedPreferences"
+         */
         save.setOnClickListener {
-            val name: String = etxName.text.toString()
-            val clinic: String = etxClinic.text.toString()
-            val number: String = etxNumber.text.toString()
+            //Se crea una con
+            if(etxName.text.isEmpty()||etxClinic.text.isEmpty()||etxNumber.text.isEmpty()){
+                Alerta("Por favor rellene los datos")
+            }
+            else {
+                val name: String = etxName.text.toString()
+                val clinic: String = etxClinic.text.toString()
+                val number: String = etxNumber.text.toString()
                 val edit = prefs.edit()
                 edit.putString("key1", "Nombre: $name")
                 edit.putString("key2", "Clinica: $clinic")
                 edit.putString("key3", "N° de la dosis: $number")
                 edit.apply()
                 Alerta("Hemos actualizado los datos")
+                etxClinic.setText("")
+                etxName.setText("")
+                etxNumber.setText("")
+            }
 
 
         }
-        show.setOnClickListener {
-            val intent = Intent(this, Resultado::class.java).apply {
+        /*Se configura lo que hará el boton "Guardar"
+        Y se se llama al Intent
+ */
+    show.setOnClickListener {
+    val intent = Intent(this, Resultado::class.java).apply {
 
-            }
-            startActivity(intent)
+    }
+    startActivity(intent)
+
+}
+
+//Crea una funcion para que muestre una alerta a la hora de guradar los datos
+}
+private fun Alerta(message: String){
+val builder = AlertDialog.Builder(this)
+builder.setTitle("Registro")
+builder.setMessage(message)
+val dialog = builder.create()
+dialog.show()
+
+}
+    //Se crea la funcion para que se muestre el menu sobre la BarAction
+override fun onCreateOptionsMenu(menu: Menu): Boolean {
+val inflater: MenuInflater = menuInflater
+inflater.inflate(R.menu.menu, menu)
+return true
+}
+    /*Se crea una funcion para que al tapear sobre un item nos lleve
+    al inten deseado
+     */
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+// Handle item selection
+return when (item.itemId) {
+    R.id.info -> {
+        val intent = Intent(this, about_us::class.java).apply {
 
         }
-
-
+        startActivity(intent)
+        true
     }
-    private fun Alerta(message: String){
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Registro")
-        builder.setMessage(message)
-        val dialog = builder.create()
-        dialog.show()
+    R.id.contacto-> {
+        val intent = Intent(this, Contacto::class.java).apply {
 
-    }
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu, menu)
-        return true
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle item selection
-        return when (item.itemId) {
-            R.id.info -> {
-                val intent = Intent(this, about_us::class.java).apply {
-
-                }
-                startActivity(intent)
-                true
-            }
-            R.id.contacto-> {
-                val intent = Intent(this, Contacto::class.java).apply {
-
-                }
-                startActivity(intent)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
         }
+        startActivity(intent)
+        true
     }
+    else -> super.onOptionsItemSelected(item)
+}
+}
 }
