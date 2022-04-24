@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/info"
-        android:title="¿Quienes somos?" />
+        android:title="Integrantes" />
     <item
         android:id="@+id/contacto"
         android:title="Contacto" />

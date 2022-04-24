@@ -10,6 +10,7 @@ class Resultado : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultado)
+
         Obtener()
 
     }
@@ -23,7 +24,7 @@ class Resultado : AppCompatActivity() {
 
         val myprefs = prefs.getString("key1", "Nombre: No hay registro ")
         val myprefs1 = prefs.getString("key2", "Clinica: No hay registro ")
-        val myprefs2 = prefs.getString("key3", "N° de vacuna: No hay  registro ")
+        val myprefs2 = prefs.getString("key3", "N° de la dosis: No hay  registro ")
 
         name.text=myprefs
         clinic.text=myprefs1

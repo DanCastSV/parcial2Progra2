@@ -23,16 +23,18 @@ class MainActivity : AppCompatActivity() {
         @Suppress("DEPRECATION")
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
+
         save.setOnClickListener {
-            val name:String=etxName.text.toString()
-            val clinic:String=etxClinic.text.toString()
-            val number:String=etxNumber.text.toString()
-            val edit = prefs.edit()
-            edit.putString("key1", "Nombre: $name")
-            edit.putString("key2", "Clinica: $clinic")
-            edit.putString("key3", "N° de vacuna: $number")
-            edit.apply()
-            Alerta("Hemos actualizado los datos")
+            val name: String = etxName.text.toString()
+            val clinic: String = etxClinic.text.toString()
+            val number: String = etxNumber.text.toString()
+                val edit = prefs.edit()
+                edit.putString("key1", "Nombre: $name")
+                edit.putString("key2", "Clinica: $clinic")
+                edit.putString("key3", "N° de la dosis: $number")
+                edit.apply()
+                Alerta("Hemos actualizado los datos")
+
 
         }
         show.setOnClickListener {
@@ -40,9 +42,6 @@ class MainActivity : AppCompatActivity() {
 
             }
             startActivity(intent)
-
-
-
 
         }
 
